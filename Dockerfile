@@ -5,8 +5,8 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y nginx
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY config/nginx.conf /etc/nginx/nginx.conf
-COPY config/vhosts/default.conf /etc/nginx/vhosts/default.conf
+COPY config /etc/nginx/nginx.conf
+COPY config /etc/nginx/vhosts/default.conf
 
 RUN rm -rf /var/www
 COPY www /var/www

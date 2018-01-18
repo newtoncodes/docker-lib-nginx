@@ -1,2 +1,3 @@
-# docker-lib-nginx
-Docker nginx image based on ubuntu.
+# Nginx on ubuntu docker image
+
+Basic nginx image, no additional functionality. 

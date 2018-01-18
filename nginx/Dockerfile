@@ -1,7 +1,5 @@
 FROM newtoncodes/ubuntu:16.04
 
-RUN apt-get update
-RUN DEBIAN_FRONTEND="noninteractive" add-apt-repository -y ppa:pinepain/libv8-5.2
 RUN DEBIAN_FRONTEND="noninteractive" add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y nginx

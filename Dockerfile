@@ -14,5 +14,7 @@ COPY www /var/www
 COPY entrypoint.sh /usr/bin/entrypoint
 RUN chmod +x /usr/bin/entrypoint
 
+ENV THREADS=auto
+
 ENTRYPOINT ["/usr/bin/entrypoint"]
 CMD ["nginx"]

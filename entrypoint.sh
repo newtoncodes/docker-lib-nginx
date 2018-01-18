@@ -11,7 +11,11 @@ TIMESTAMP=$(echo $tmp_ | sed 's/[ \:\-]//g');
 
 
 if [ "$1" = "nginx" ]; then
-    sed -i "s/worker_processes .*/worker_processes $CPU_COUNT;/" /etc/nginx/nginx.conf
+    if [ "$THREADS" = "auto" ]; then
+        sed -i "s/worker_processes .*/worker_processes $CPU_COUNT;/" /etc/nginx/nginx.conf
+    else
+        sed -i "s/worker_processes .*/worker_processes $THREADS;/" /etc/nginx/nginx.conf
+    fi
 
     sed -i "s#access_log /var/log/nginx/access.log#access_log /var/log/nginx/access.$TIMESTAMP-$CONTAINER_ID.log#" /etc/nginx/nginx.conf
     sed -i "s#error_log /var/log/nginx/error.log#error_log /var/log/nginx/error.$TIMESTAMP-$CONTAINER_ID.log#" /etc/nginx/nginx.conf
